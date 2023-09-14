@@ -41,7 +41,7 @@ class BannerController extends Controller
         $request->validate([
             'thumbnail' => 'required|mimes:jpg,jpeg,png,gif|max:2048',
             'title' => 'required',
-            'descr' => 'required',
+            // 'descr' => 'required',
         ]);
         $orginal_name = $request->file('thumbnail')->getClientOriginalName();
         $orginal_ext = $request->file('thumbnail')->getClientOriginalExtension();

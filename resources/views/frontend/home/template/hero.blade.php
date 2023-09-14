@@ -15,8 +15,8 @@
             <img src="{{asset($banner->thumbnail)}}" alt="Carousel Image">
             <div class="carousel-caption">
                 <p class="animated fadeInRight">{{$banner->title}}</p>
-                <h1 class="animated fadeInLeft">{!! $banner->descr !!}</h1>
-                <a class="btn animated fadeInUp" href="https://htmlcodex.com/construction-company-website-template">Get A Quote</a>
+                {{-- <h1 class="animated fadeInLeft">{!! $banner->descr !!}</h1> --}}
+                <a class="btn animated fadeInUp" href="{{route('contact')}}">Get A Quote</a>
             </div>
         </div>
         @endforeach

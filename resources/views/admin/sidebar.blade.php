@@ -29,24 +29,26 @@
 
 
                   <li class="menu-item-has-children dropdown">
-                    <a href="{{route('question')}}" class="{{ request()->segment(1)=='question' ? 'active':'' }}" >Questions</a>
+                    <a href="{{route('admin.faqs.index')}}" class="{{ request()->segment(1)=='faq' ? 'active':'' }}" >Faq</a>
                     </li>
-
+                    <li class="menu-item-has-children dropdown">
+                        <a href="{{route('admin.branches.index')}}" class="{{ request()->segment(1)=='faq' ? 'active':'' }}" >Branch</a>
+                        </li>
                   <li class="menu-item-has-children dropdown">
                      <a href="{{route('admin.frontend-setting')}}" class="{{ request()->segment(1)=='frontend-setting' ? 'active':'' }}">Frontend setting</a>
 
 
-                         <li class="menu-item-has-children dropdown">
+                         {{-- <li class="menu-item-has-children dropdown">
                         <a href="{{route('admincontact')}}" class="{{ request()->segment(1)=='contactlist' ? 'active':'' }}">Contact List</a>
-                        </li>
-
+                        </li> --}}
+{{--
 
                               <li class="menu-item-has-children dropdown">
                                  <a href="{{route('subscriberlist')}}" class="{{ request()->segment(1)=='subscriberlist' ? 'active':'' }}">Subscriber</a>
-                                 </li>
-                              <li class="menu-item-has-children dropdown">
+                                 </li> --}}
+                              {{-- <li class="menu-item-has-children dropdown">
                                  <a href="{{route('extrasetting')}}" class="{{ request()->segment(1)=='extrasetting' ? 'active':'' }}">Extra setting</a>
-                                 </li>
+                                 </li> --}}
           </ul>
        </div>
     </nav>

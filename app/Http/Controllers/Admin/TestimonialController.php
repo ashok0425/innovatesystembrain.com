@@ -48,7 +48,7 @@ class TestimonialController extends Controller
         $orginal_ext = $request->file('thumbnail')->getClientOriginalExtension();
         $filename = rand() . ".$orginal_ext";
         $imgs = $request->file('thumbnail');
-        Image::make($imgs)->save('images/testimonial/' . $filename);
+        Image::make($imgs)->resize(200,300)->save('images/testimonial/' . $filename);
         $testimonial = new Testimonial();
         $testimonial->thumbnail = 'images/testimonial/' . $filename;
         $testimonial->name = $request->name;
@@ -82,7 +82,7 @@ class TestimonialController extends Controller
             $orginal_ext = $request->file('thumbnail')->getClientOriginalExtension();
             $filename = rand() . ".$orginal_ext";
             $imgs = $request->file('thumbnail');
-            Image::make($imgs)->save('images/testimonial/' . $filename);
+            Image::make($imgs)->resize(200,200)->save('images/testimonial/' . $filename);
             $testimonial->thumbnail = 'images/testimonial/' . $filename;
         }
 

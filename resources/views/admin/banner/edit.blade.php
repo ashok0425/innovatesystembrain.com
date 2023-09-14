@@ -27,18 +27,18 @@
                     </div>
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <textarea name="title" class="form-control" id="summernote1">{!!$banner->title!!}</textarea>
+                        <textarea name="title" class="form-control" >{!!$banner->title!!}</textarea>
                         @error('title')
                     <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="descr">Description</label>
                     <textarea name="descr" class="form-control" id="summernote2">{!!$banner->descr!!}</textarea>
                         @error('descr')
                     <span class="text-danger">{{$message}}</span>
                         @enderror
-                    </div>
+                    </div> --}}
                     <div class="form-group">
                     <a href="{{route('admin.banners.index')}}" class="btn btn-dark">Back</a>
                         <input type="submit" value="Update" class="btn-info btn" class="form-control">

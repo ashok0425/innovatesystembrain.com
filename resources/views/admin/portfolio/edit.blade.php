@@ -25,6 +25,18 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="type">Type</label>
+                        <select name="type" id="" class="form-select form-control">
+                            <option value="">--select type--</option>
+                            <option value="portfolio" {{$portfolio->type=='portfolio'?'select':''}}>Portfolio</option>
+                            <option value="product" {{$portfolio->type=='product'?'select':''}}>Product</option>
+                        </select>
+                        @error('type')
+                    <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
                         <label for="term_conditios">Title</label>
                         <textarea name="title" class="form-control">{!! $portfolio->title !!}</textarea>
                         @error('title')

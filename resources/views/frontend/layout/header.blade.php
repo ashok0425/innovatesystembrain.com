@@ -63,14 +63,14 @@
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav mr-auto">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About</a>
-                    <a href="service.html" class="nav-item nav-link">Service</a>
-                    <a href="team.html" class="nav-item nav-link">Team</a>
-                    <a href="portfolio.html" class="nav-item nav-link">Portfolio</a>
-                    <a href="portfolio.html" class="nav-item nav-link">Blog</a>
+                    <a href="{{route('/')}}" class="nav-item nav-link active">Home</a>
+                    <a href="{{route('about')}}" class="nav-item nav-link">About</a>
+                    <a href="{{route('services')}}" class="nav-item nav-link">Service</a>
+                    <a href="{{route('teams')}}" class="nav-item nav-link">Team</a>
+                    <a href="{{route('portfolios')}}" class="nav-item nav-link">Portfolio</a>
+                    {{-- <a href="{{route('blogs')}}" class="nav-item nav-link">Blog</a> --}}
 
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="{{route('contact')}}" class="nav-item nav-link">Contact</a>
                 </div>
 
             </div>

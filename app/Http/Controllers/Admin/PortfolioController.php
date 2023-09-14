@@ -47,10 +47,11 @@ class PortfolioController extends Controller
         $orginal_ext = $request->file('thumbnail')->getClientOriginalExtension();
         $filename = rand() . ".$orginal_ext";
         $imgs = $request->file('thumbnail');
-        Image::make($imgs)->save('images/portfolio/' . $filename);
+        Image::make($imgs)->resize(200,300)->save('images/portfolio/' . $filename);
         $portfolio = new Portfolio();
         $portfolio->thumbnail = 'images/portfolio/' . $filename;
         $portfolio->title = $request->title;
+        $portfolio->type = $request->type;
         $portfolio->short_desc = $request->short_desc;
         $portfolio->descr = $request->descr;
         $portfolio->save();
@@ -81,13 +82,14 @@ class PortfolioController extends Controller
             $orginal_ext = $request->file('thumbnail')->getClientOriginalExtension();
             $filename = rand() . ".$orginal_ext";
             $imgs = $request->file('thumbnail');
-            Image::make($imgs)->save('images/portfolio/' . $filename);
+            Image::make($imgs)->resize(200,300)->save('images/portfolio/' . $filename);
             $portfolio->thumbnail = 'images/portfolio/' . $filename;
         }
 
         $portfolio->title = $request->title;
         $portfolio->short_desc = $request->short_desc;
         $portfolio->descr = $request->descr;
+        $portfolio->type = $request->type;
         $portfolio->save();
         return redirect()->back()->with('msg', 'Portfolio updated');
     }

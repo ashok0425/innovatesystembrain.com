@@ -3,6 +3,8 @@
 @section('content')
     @include('frontend.home.template.hero')
     @include('frontend.home.template.feature')
+    @include('frontend.home.template.product')
+
     @include('frontend.home.template.about')
     @include('frontend.home.template.service')
     @include('frontend.home.template.video')

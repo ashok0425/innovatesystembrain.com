@@ -1,6 +1,24 @@
-@php
-    $teams=App\Models\Team::query()->limit(4)->get();
-@endphp
+@extends('frontend.layout.master')
+@section('content')
+
+
+            <!-- Page Header Start -->
+            <div class="page-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>Our team</h2>
+                        </div>
+                        <div class="col-12">
+                            <a href="{{route('/')}}">Home</a>
+                            <a href="">Our Team</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Page Header End -->
+
+
             <!-- Team Start -->
             <div class="team">
                 <div class="container">
@@ -10,7 +28,6 @@
                     </div>
                     <div class="row">
                         @foreach ($teams as $team)
-
                         <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="team-item">
                                 <div class="team-img">
@@ -33,4 +50,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Team End -->
+            <!-- team End -->
+
+            @include('frontend.home.template.faq')
+@endsection

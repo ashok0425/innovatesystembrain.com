@@ -4,32 +4,33 @@
         <div class="col-md-12 ">
             @include('message.message')
             <div class="card px-2 py-3">
-                <a href="{{ route('admin.portfolios.create') }}" class="btn btn-md btn-primary w-25 my-3 ml-auto">Add New Portfolio <i
+                <a href="{{ route('admin.branches.create') }}" class="btn btn-md btn-primary w-25 my-3 ml-auto">Add New Branch <i
                         class="fas fa-plus"></i></a>
 
                 <table id="table_id" class="display">
                     <thead>
                         <tr>
                             <th>S.N</th>
-                            <th>Thumbnail</th>
-                            <th>Title</th>
-                            <th>Type</th>
+                            <th>Branch</th>
+                            <th>Address</th>
+                            <th>Email</th>
+                            <th>Phone</th>
                             <th>Operations</th>
 
                         </tr>
                     </thead>
                     <tbody>
 
-                        @foreach ($portfolios as $protfolio)
+                        @foreach ($branches as $branch)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td><img src="{{ asset($protfolio->thumbnail) }}" alt="{{ $protfolio->thumbnail }}" width="100"></td>
-                                <td style="max-width: 200px;">{{ Str::limit(strip_tags($protfolio->title), 50) }}</td>
-
-                                <td style="max-width: 200px;">{{ Str::limit(strip_tags($protfolio->type), 100) }}</td>
+                                <td style="max-width: 200px;">{{ $branch->name }}</td>
+                                <td style="max-width: 200px;">{{ $branch->address }}</td>
+                                <td style="max-width: 200px;">{{ $branch->email }}</td>
+                                <td style="max-width: 200px;">{{ $branch->phone }}</td>
                                 <td>
-                                    <a href="{{ route('admin.portfolios.edit', $protfolio) }}" class="btn-sm btn btn-info">Edit</a>
-                                    <form action="{{ route('admin.portfolios.destroy', $protfolio) }}" method="post">
+                                    <a href="{{ route('admin.branches.edit', $branch) }}" class="btn-sm btn btn-info">Edit</a>
+                                    <form action="{{ route('admin.branches.destroy', $branch) }}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger btn-sm">Delete</button>

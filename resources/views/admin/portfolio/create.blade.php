@@ -23,6 +23,18 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="type">Type</label>
+                        <select name="type" id="" class="form-select form-control">
+                            <option value="">--select type--</option>
+                            <option value="portfolio">Portfolio</option>
+                            <option value="product">Product</option>
+                        </select>
+                        @error('type')
+                    <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
                         <label for="title">Title</label>
                         <textarea name="title" class="form-control">{{old('title')}}</textarea>
                         @error('title')

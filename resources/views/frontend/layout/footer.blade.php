@@ -9,11 +9,11 @@
                     <p><i class="fa fa-phone-alt"></i>{{$setting->phone}}</p>
                     <p><i class="fa fa-envelope"></i>{{$setting->email}}</p>
                     <div class="footer-social">
-                        <a href=""><i class="fab fa-twitter"></i></a>
-                        <a href=""><i class="fab fa-facebook-f"></i></a>
-                        <a href=""><i class="fab fa-youtube"></i></a>
-                        <a href=""><i class="fab fa-instagram"></i></a>
-                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a href="{{asset($setting->twitter)}}"><i class="fab fa-twitter"></i></a>
+                        <a href="{{asset($setting->facebook)}}"><i class="fab fa-facebook-f"></i></a>
+                        {{-- <a href="{{asset($setting->youtube)}}"><i class="fab fa-youtube"></i></a> --}}
+                        <a href="{{asset($setting->instagram)}}"><i class="fab fa-instagram"></i></a>
+                        <a href="{{asset($setting->linkdin)}}"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
@@ -51,16 +51,16 @@
             </div>
         </div>
     </div>
-    <div class="container footer-menu">
+    {{-- <div class="container footer-menu">
         <div class="f-menu">
             <a href="">Terms of use</a>
             <a href="">Privacy policy</a>
             <a href="">FQAs</a>
         </div>
-    </div>
-    <div class="container copyright text-center">
+    </div> --}}
+    <div class="container copyright text-center border-top">
 
-                <p>&copy; <a href="#">Your Site Name</a>, All Right Reserved.</p>
+                <p>&copy; <a href="{{route('/')}}">{{$setting->copyright}}</a>, All Right Reserved.</p>
 
         </div>
     </div>

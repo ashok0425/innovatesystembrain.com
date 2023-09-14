@@ -15,24 +15,21 @@
                             <th>S.N</th>
                             <th>Title</th>
                             <th>Image</th>
-                            <th>Description</th>
+                            {{-- <th>Description</th> --}}
                             <th>Operations</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        @php
-                            $i = 1;
-                        @endphp
 
                         @foreach ($banners as $banner)
                             <tr>
-                                <td>{{ $i++ }}</td>
+                                <td>{{ $loop->iteration }}</td>
 
                                 <td style="max-width: 200px;">{{ strip_tags($banner->title) }}</td>
                                 <td><img src="{{ asset($banner->thumbnail) }}" alt="{{ $banner->thumbnail }}" width="100">
                                 </td>
-                                <td style="max-width: 200px;">{!! strip_tags($banner->descr) !!}</td>
+                                {{-- <td style="max-width: 200px;">{!! strip_tags($banner->descr) !!}</td> --}}
                                 <td class="d-flex align-items-center">
                                     <a href="{{ route('admin.banners.edit', $banner) }}"
                                         class="btn-sm btn btn-info">Edit</a>
