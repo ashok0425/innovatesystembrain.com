@@ -21,6 +21,13 @@
                     <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
+                    <div class="form-group">
+                        <label for="cover_image">Cover Image</label>
+                        <input type="file" name="cover_image" class="form-control" required>
+                        @error('cover_image')
+                    <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
 
                     <div class="form-group">
                         <label for="type">Type</label>

@@ -32,13 +32,13 @@
                         @enderror
                     </div>
 
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="term_conditios">Title</label>
                         <textarea name="title" class="form-control" placeholder="title" ></textarea>
                         @error('title')
                     <span class="text-danger">{{$message}}</span>
                         @enderror
-                    </div>
+                    </div> --}}
                     {{-- <div class="form-group">
                         <label for="privacy_policy">Description</label>
                     <textarea name="privacy_policy" class="form-control" placeholder="Some details " id="summernote2"></textarea>

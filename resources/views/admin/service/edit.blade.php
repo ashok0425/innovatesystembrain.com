@@ -27,6 +27,14 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label for="cover_image">Cover Image</label>
+                        <input type="file" name="cover_image" class="form-control" >
+                        <img src="{{asset($service->cover_image)}}" alt="" height="100">
+                        @error('cover_image')
+                    <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
                         <label for="title">Title</label>
                         <textarea name="title" class="form-control" >{!!$service->title!!}</textarea>
                         @error('title')
@@ -34,7 +42,7 @@
                         @enderror
                     </div><div class="form-group">
                         <label for="descr">Description</label>
-                    <textarea name="descr" class="form-control" placeholder="Blog description" >{!!$service->descr!!}</textarea>
+                    <textarea name="descr" class="form-control" placeholder="Blog description" id="summernote1">{!!$service->descr!!}</textarea>
                         @error('descr')
                     <span class="text-danger">{{$message}}</span>
                         @enderror

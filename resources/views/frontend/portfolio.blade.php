@@ -20,33 +20,30 @@
 
 
             <!-- Service Start -->
-            <div class="portfolio">
+            <div class="service">
                 <div class="container">
                     <div class="section-header text-center">
-                        <p>Our Portfolio</p>
-                        <h2>Visit Our Portfolio
-                        </h2>
+                        <p>Our Services</p>
+                        <h2>We Provide Services</h2>
                     </div>
-                    <div class="row portfolio-container">
+                    <div class="row">
                         @foreach ($portfolios as $portfolio)
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="service-item">
+                                <a class="portfolio-img" href="{{route('service.detail',['slug'=>$portfolio->slug])}}">
+                                    <img src="{{asset($portfolio->thumbnail)}}" alt="Image">
 
-                        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="portfolio-warp">
-                                <div class="portfolio-img">
-                                    <img src="{{asset($portfolio->thumbnail)}}" alt="{{$portfolio->title}}" height="200">
-                                    <div class="portfolio-overlay">
-                                        <p>
-                                            {!!Str::limit(strip_tags($portfolio->descr),200,'')!!}
-
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="portfolio-text">
-                                    <h3>{{$portfolio->title}}</h3>
-                                    <a class="btn" href="{{asset($portfolio->thumbnail)}}" data-lightbox="portfolio">+</a>
+                                </a>
+                                <div class="service-text">
+                                     <h3>
+                                        <a class="a"  href="{{route('portfolio.detail',['slug'=>$portfolio->slug])}}">               {!!$portfolio->title!!}
+                                        </a>
+                                    </h3>
+                                    <a class="btn" href="{{asset($portfolio->thumbnail)}}" data-lightbox="service">+</a>
                                 </div>
                             </div>
                         </div>
+
                         @endforeach
 
                     </div>

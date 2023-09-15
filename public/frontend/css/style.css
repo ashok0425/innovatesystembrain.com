@@ -286,7 +286,7 @@ a:focus {
     height: 100%;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, .3);
+    /* background: rgba(0, 0, 0, .3); */
     z-index: 1;
 }
 
@@ -1940,7 +1940,9 @@ a:focus {
 .contact .col-md-6:first-child,.branch .col-md-6 {
     background: #10421f!important;
 }
-
+.a{
+    color: #fdbe33!important;
+}
 .contact .col-md-6:last-child {
     background: #fdbe33;
 }

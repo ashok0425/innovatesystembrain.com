@@ -11,6 +11,6 @@
     @include('frontend.home.template.team')
     @include('frontend.home.template.faq')
     @include('frontend.home.template.testimonial')
-    @include('frontend.home.template.blog')
+    {{-- @include('frontend.home.template.blog') --}}
 
 @endsection

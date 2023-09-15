@@ -8,6 +8,8 @@ use Auth;
 use File;
 use Image;
 use App\Http\Controllers\Controller;
+use App\Models\Contactform;
+
 class FrontendsettingController extends Controller
 
 {
@@ -22,6 +24,13 @@ class FrontendsettingController extends Controller
         $setting=Frontendsetting::find(1);
       return view('admin.setting.frontend',compact('setting'));
     }
+
+    public function contactList()
+    {
+        $contacts=Contactform::orderBy('id','desc')->get();
+      return view('admin.contact.index',compact('contacts'));
+    }
+
 
     /**
      * Show the form for creating a new resource.

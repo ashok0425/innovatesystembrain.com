@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Branch;
+use App\Models\Contactform;
 use App\Models\Frontendsetting;
 use App\Models\Portfolio;
 use App\Models\Service;
 use App\Models\Team;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 class HomeController extends Controller
@@ -42,5 +44,29 @@ public function team(){
 public function portfolio(){
     $portfolios=Portfolio::where('type','portfolio')->get();
     return view('frontend.portfolio',compact('portfolios'));
+}
+
+
+public function serviceDetail($slug){
+    $service=Service::where('slug',$slug)->first();
+    return view('frontend.service-detail',compact('service'));
+}
+
+public function portfolioDetail($slug){
+    $portfolio=Portfolio::where('slug',$slug)->first();
+    return view('frontend.portfolio-detail',compact('portfolio'));
+}
+
+public function contactStore(Request $request){
+    $contact=new Contactform();
+    $contact->name=$request->name;
+    $contact->email=$request->email;
+    $contact->phone=$request->phone;
+    $contact->date=$request->date;
+    $contact->subject=$request->subject;
+    $contact->message=$request->message;
+   $contact->save();
+   return redirect()->back()->with(['success'=>'Message Sent Successfully.','alert-type'=>true]);
+
 }
 }

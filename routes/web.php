@@ -47,6 +47,7 @@ Route::middleware(['auth:sanctum'])->prefix('admin')->name('admin.')->group(func
     Route::resource('portfolios',PortfolioController::class);
     Route::resource('faqs',FaqController::class);
     Route::resource('branches',BranchController::class);
+    Route::get('contact',[FrontendsettingController::class,'contactList'])->name('contactlist');//front end setting
 
     Route::get('frontend-setting',[FrontendsettingController::class,'index'])->name('frontend-setting');//front end setting
     Route::post('update-frontend',[FrontendsettingController::class,'update'])->name('update-frontend');//update front end setting
@@ -75,6 +76,11 @@ Route::get('/services',[HomeController::class,'service'])->name('services');
 Route::get('/teams',[HomeController::class,'team'])->name('teams');
 Route::get('/portfolios',[HomeController::class,'portfolio'])->name('portfolios');
 Route::get('/blogs',[HomeController::class,'blog'])->name('blogs');
+Route::get('/service/{slug}',[HomeController::class,'serviceDetail'])->name('service.detail');
+Route::get('/portfolio/{slug}',[HomeController::class,'portfolioDetail'])->name('portfolio.detail');
+
+Route::post('/contact',[HomeController::class,'contactStore']);
+
 
 
 

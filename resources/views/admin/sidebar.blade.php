@@ -38,9 +38,9 @@
                      <a href="{{route('admin.frontend-setting')}}" class="{{ request()->segment(1)=='frontend-setting' ? 'active':'' }}">Frontend setting</a>
 
 
-                         {{-- <li class="menu-item-has-children dropdown">
-                        <a href="{{route('admincontact')}}" class="{{ request()->segment(1)=='contactlist' ? 'active':'' }}">Contact List</a>
-                        </li> --}}
+                         <li class="menu-item-has-children dropdown">
+                        <a href="{{route('admin.contactlist')}}" class="{{ request()->segment(1)=='contactlist' ? 'active':'' }}">Contact List</a>
+                        </li>
 {{--
 
                               <li class="menu-item-has-children dropdown">

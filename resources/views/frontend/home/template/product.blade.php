@@ -11,8 +11,8 @@
         <div class="row">
             @foreach ($products as $product)
             <div class="col-md-6 text-center">
-               <a href="">
-                <div><img src="{{asset($product->thumbnail)}}" alt="{{$product->title}}"></div>
+               <a href="{{route('portfolio.detail',['slug'=>$product->slug])}}">
+                <div><img src="{{asset($product->thumbnail)}}" alt="{{$product->title}}" class="img-fluid"></div>
                 <p>{{$product->title}}</p>
                </a>
             </div>

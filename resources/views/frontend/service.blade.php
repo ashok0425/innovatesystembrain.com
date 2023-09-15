@@ -28,23 +28,22 @@
                     </div>
                     <div class="row">
                         @foreach ($services as $service)
-
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="service-item">
-                                <div class="service-img">
-                                    <img src="{{asset($service->thumbnail)}}" alt="{{$service->title}}">
-                                    <div class="service-overlay">
-                                        <p>
-                                            {!!Str::limit(strip_tags($service->descr),200,'')!!}
-                                        </p>
-                                    </div>
-                                </div>
+                                <a class="service-img" href="{{route('service.detail',['slug'=>$service->slug])}}">
+                                    <img src="{{asset($service->thumbnail)}}" alt="Image">
+
+                                </a>
                                 <div class="service-text">
-                                    <h3>{{$service->title}}</h3>
+                                     <h3>
+                                        <a class="a"  href="{{route('service.detail',['slug'=>$service->slug])}}">               {!!$service->title!!}
+                                        </a>
+                                    </h3>
                                     <a class="btn" href="{{asset($service->thumbnail)}}" data-lightbox="service">+</a>
                                 </div>
                             </div>
                         </div>
+
                         @endforeach
 
                     </div>

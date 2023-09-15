@@ -13,17 +13,14 @@
 
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="service-item">
-                    <div class="service-img">
+                    <a class="service-img" href="{{route('service.detail',['slug'=>$service->slug])}}">
                         <img src="{{asset($service->thumbnail)}}" alt="Image">
-                        <div class="service-overlay">
-                            <p>
-                                   {!! Str::limit(strip_tags($service->descr),150)!!}
 
-                            </p>
-                        </div>
-                    </div>
+                    </a>
                     <div class="service-text">
-                        <h3>                             {!!$service->title!!}
+                         <h3>
+                            <a class="a"  href="{{route('service.detail',['slug'=>$service->slug])}}">               {!!$service->title!!}
+                            </a>
                         </h3>
                         <a class="btn" href="{{asset($service->thumbnail)}}" data-lightbox="service">+</a>
                     </div>

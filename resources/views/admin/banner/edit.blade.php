@@ -25,13 +25,13 @@
                     <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="title">Title</label>
                         <textarea name="title" class="form-control" >{!!$banner->title!!}</textarea>
                         @error('title')
                     <span class="text-danger">{{$message}}</span>
                         @enderror
-                    </div>
+                    </div> --}}
                     {{-- <div class="form-group">
                         <label for="descr">Description</label>
                     <textarea name="descr" class="form-control" id="summernote2">{!!$banner->descr!!}</textarea>

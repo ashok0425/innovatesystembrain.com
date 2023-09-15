@@ -63,14 +63,14 @@
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav mr-auto">
-                    <a href="{{route('/')}}" class="nav-item nav-link active">Home</a>
-                    <a href="{{route('about')}}" class="nav-item nav-link">About</a>
-                    <a href="{{route('services')}}" class="nav-item nav-link">Service</a>
-                    <a href="{{route('teams')}}" class="nav-item nav-link">Team</a>
-                    <a href="{{route('portfolios')}}" class="nav-item nav-link">Portfolio</a>
+                    <a href="{{route('/')}}" class="nav-item nav-link {{request()->is('/')?'active':''}}">Home</a>
+                    <a href="{{route('about')}}" class="nav-item nav-link  {{request()->is('about')?'active':''}}">About</a>
+                    <a href="{{route('services')}}" class="nav-item nav-link {{request()->is('services')?'active':''}}">Service</a>
+                    <a href="{{route('teams')}}" class="nav-item nav-link {{request()->is('teams')?'active':''}}">Team</a>
+                    <a href="{{route('portfolios')}}" class="nav-item nav-link {{request()->is('portfolios')?'active':''}}">Portfolio</a>
                     {{-- <a href="{{route('blogs')}}" class="nav-item nav-link">Blog</a> --}}
 
-                    <a href="{{route('contact')}}" class="nav-item nav-link">Contact</a>
+                    <a href="{{route('contact')}}" class="nav-item nav-link {{request()->is('contact')?'active':''}}">Contact</a>
                 </div>
 
             </div>

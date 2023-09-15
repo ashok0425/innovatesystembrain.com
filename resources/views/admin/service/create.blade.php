@@ -22,6 +22,13 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label for="cover_image">Cover Image</label>
+                        <input type="file" name="cover_image" class="form-control" required>
+                        @error('cover_image')
+                    <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
                         <label for="title">Title</label>
                         <textarea name="title" class="form-control" required ></textarea>
                         @error('title')
@@ -29,7 +36,7 @@
                         @enderror
                     </div><div class="form-group">
                         <label for="descr">Description</label>
-                    <textarea name="descr" class="form-control" required  ></textarea>
+                    <textarea name="descr" class="form-control" required  id="summernote1"></textarea>
                         @error('descr')
                     <span class="text-danger">{{$message}}</span>
                         @enderror

@@ -1,3 +1,8 @@
+ @php
+     $services=App\Models\Service::limit(5)->get();
+     $products=App\Models\Portfolio::where('type','product')->limit(5)->get();
+
+ @endphp
  <!-- Footer Start -->
  <div class="footer wow fadeIn" data-wow-delay="0.3s">
     <div class="container">
@@ -20,35 +25,33 @@
             <div class="col-md-6 col-lg-3">
                 <div class="footer-link">
                     <h2>Services Areas</h2>
-                    <a href="">Building Construction</a>
-                    <a href="">House Renovation</a>
-                    <a href="">Architecture Design</a>
-                    <a href="">Interior Design</a>
-                    <a href="">Painting</a>
+                    @foreach ($services as $service)
+                    <a href="{{route('service.detail',['slug'=>$service->slug])}}">{{$service->title}}</a>
+
+                    @endforeach
+
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="footer-link">
+                    <h2>Our Product</h2>
+                    @foreach ($products as $product)
+                    <a href="{{route('portfolio.detail',['slug'=>$product->slug])}}">{{$product->title}}</a>
+
+                    @endforeach
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
                 <div class="footer-link">
                     <h2>Useful Pages</h2>
-                    <a href="">About Us</a>
-                    <a href="">Contact Us</a>
-                    <a href="">Our Team</a>
-                    <a href="">Projects</a>
-                    <a href="">Testimonial</a>
+                    <a href="{{route('about')}}">About Us</a>
+                    <a href="{{route('contact')}}">Contact Us</a>
+                    <a href="{{route('teams')}}">Our Team</a>
+                    <a href="{{route('portfolios')}}">Portfolio</a>
+                    <a href="{{route('services')}}">Service</a>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="newsletter">
-                    <h2>Newsletter</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulpu
-                    </p>
-                    <div class="form">
-                        <input class="form-control" placeholder="Email here">
-                        <button class="btn">Submit</button>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
     {{-- <div class="container footer-menu">

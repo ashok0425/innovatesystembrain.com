@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Image;
 use File;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Str;
 class PortfolioController extends Controller
 {
     /**
@@ -47,13 +47,26 @@ class PortfolioController extends Controller
         $orginal_ext = $request->file('thumbnail')->getClientOriginalExtension();
         $filename = rand() . ".$orginal_ext";
         $imgs = $request->file('thumbnail');
-        Image::make($imgs)->resize(200,300)->save('images/portfolio/' . $filename);
+        if($request->type=='product'){
+            Image::make($imgs)->save('images/portfolio/' . $filename);
+
+        }else{
+            Image::make($imgs)->resize(300,200)->save('images/portfolio/' . $filename);
+        }
         $portfolio = new Portfolio();
+        if ($request->has('cover_image')) {
+            $orginal_ext = $request->file('cover_image')->getClientOriginalExtension();
+            $filename = rand() . ".$orginal_ext";
+            $imgs = $request->file('cover_image');
+            Image::make($imgs)->resize(1000,300)->save('images/service/' . $filename);
+            $portfolio->cover_image = 'images/service/' . $filename;
+        }
         $portfolio->thumbnail = 'images/portfolio/' . $filename;
         $portfolio->title = $request->title;
         $portfolio->type = $request->type;
         $portfolio->short_desc = $request->short_desc;
         $portfolio->descr = $request->descr;
+        $portfolio->slug =Str::slug($request->title);
         $portfolio->save();
         return redirect()->back()->with('msg', 'New portfolio added');
     }
@@ -73,23 +86,29 @@ class PortfolioController extends Controller
         $id = $request->id;
         if ($request->thumbnail) {
             FIle::delete($portfolio->thumbnail);
-
-            $request->validate([
-                'thumbnail' => 'required|mimes:jpg,jpeg,png,gif|max:2048',
-
-            ]);
-            $orginal_name = $request->file('thumbnail')->getClientOriginalName();
             $orginal_ext = $request->file('thumbnail')->getClientOriginalExtension();
             $filename = rand() . ".$orginal_ext";
             $imgs = $request->file('thumbnail');
-            Image::make($imgs)->resize(200,300)->save('images/portfolio/' . $filename);
+            if($request->type=='product'){
+                Image::make($imgs)->save('images/portfolio/' . $filename);
+
+            }else{
+                Image::make($imgs)->resize(300,200)->save('images/portfolio/' . $filename);
+            }
             $portfolio->thumbnail = 'images/portfolio/' . $filename;
         }
-
+        if ($request->has('cover_image')) {
+            $orginal_ext = $request->file('cover_image')->getClientOriginalExtension();
+            $filename = rand() . ".$orginal_ext";
+            $imgs = $request->file('cover_image');
+            Image::make($imgs)->resize(1000,300)->save('images/service/' . $filename);
+            $portfolio->cover_image = 'images/service/' . $filename;
+        }
         $portfolio->title = $request->title;
         $portfolio->short_desc = $request->short_desc;
         $portfolio->descr = $request->descr;
         $portfolio->type = $request->type;
+        $portfolio->slug =Str::slug($request->title);
         $portfolio->save();
         return redirect()->back()->with('msg', 'Portfolio updated');
     }
