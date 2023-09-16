@@ -47,20 +47,91 @@ color:red!important;
 {{-- including footer  --}}
 @include('admin.footer')
 
-</div>  
+</div>
 
 
 
-<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script> 
+<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote.min.js"></script>
 
 
 <script>
 
 $(document).ready(function() {
-$('#summernote1').summernote();
-$('#summernote2').summernote();
+    $('#summernote1').summernote({
+    toolbar: [
+      ['style', ['style']],
+      ['font', ['bold', 'italic', 'underline', 'clear']],
+      ['fontname', ['fontname']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['height', ['height']],
+      ['table', ['table']],
+      ['insert', ['link', 'picture', 'hr']],
+      ['view', ['fullscreen', 'codeview']],
+      ['mybutton', ['myVideo']] // custom button
+    ],
 
+    buttons: {
+      myVideo: function(context) {
+        var ui = $.summernote.ui;
+        var button = ui.button({
+          contents: '📺',
+          tooltip: 'video',
+          click: function() {
+            var div = document.createElement('span');
+            div.classList.add('embed-container');
+            var iframe = document.createElement('iframe');
+            iframe.src = prompt('Enter video url:');
+            iframe.setAttribute('frameborder', 0);
+            // iframe.setAttribute('width', '100%');
+            iframe.setAttribute('allowfullscreen', true);
+            div.appendChild(iframe);
+            context.invoke('editor.insertNode', div);
+          }
+        });
+
+        return button.render();
+      }
+    }
+  });
+  $('#summernote2').summernote({
+    toolbar: [
+      ['style', ['style']],
+      ['font', ['bold', 'italic', 'underline', 'clear']],
+      ['fontname', ['fontname']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['height', ['height']],
+      ['table', ['table']],
+      ['insert', ['link', 'picture', 'hr']],
+      ['view', ['fullscreen', 'codeview']],
+      ['mybutton', ['myVideo']] // custom button
+    ],
+
+    buttons: {
+      myVideo: function(context) {
+        var ui = $.summernote.ui;
+        var button = ui.button({
+          contents: '📺',
+          tooltip: 'video',
+          click: function() {
+            var div = document.createElement('span');
+            div.classList.add('embed-container');
+            var iframe = document.createElement('iframe');
+            iframe.src = prompt('Enter video url:');
+            iframe.setAttribute('frameborder', 0);
+            // iframe.setAttribute('width', '100%');
+            iframe.setAttribute('allowfullscreen', true);
+            div.appendChild(iframe);
+            context.invoke('editor.insertNode', div);
+          }
+        });
+
+        return button.render();
+      }
+    }
+  });
 });
 $(document).ready( function () {
     $('#table_id').DataTable();
