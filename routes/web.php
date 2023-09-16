@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\FrontendsettingController;
+use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\HomeController;
 use App\Models\Branch;
 use Illuminate\Support\Facades\Route;
@@ -47,6 +48,8 @@ Route::middleware(['auth:sanctum'])->prefix('admin')->name('admin.')->group(func
     Route::resource('portfolios',PortfolioController::class);
     Route::resource('faqs',FaqController::class);
     Route::resource('branches',BranchController::class);
+    Route::resource('pages',PageController::class);
+
     Route::get('contact',[FrontendsettingController::class,'contactList'])->name('contactlist');//front end setting
 
     Route::get('frontend-setting',[FrontendsettingController::class,'index'])->name('frontend-setting');//front end setting
