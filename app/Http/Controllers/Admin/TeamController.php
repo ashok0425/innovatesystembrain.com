@@ -47,7 +47,7 @@ class TeamController extends Controller
         $orginal_ext = $request->file('thumbnail')->getClientOriginalExtension();
         $filename = rand() . ".$orginal_ext";
         $imgs = $request->file('thumbnail');
-        Image::make($imgs)->resize(300,200)->save('images/team/' . $filename);
+        Image::make($imgs)->resize(200,300)->save('images/team/' . $filename);
         $team = new Team();
         $team->thumbnail = 'images/team/' . $filename;
         $team->name = $request->name;
@@ -81,7 +81,7 @@ class TeamController extends Controller
             $orginal_ext = $request->file('thumbnail')->getClientOriginalExtension();
             $filename = rand() . ".$orginal_ext";
             $imgs = $request->file('thumbnail');
-            Image::make($imgs)->resize(300,200)->save('images/team/' . $filename);
+            Image::make($imgs)->resize(200,300)->save('images/team/' . $filename);
             $team->thumbnail = 'images/team/' . $filename;
         }
 

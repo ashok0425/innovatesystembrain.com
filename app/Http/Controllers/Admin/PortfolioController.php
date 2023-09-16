@@ -51,7 +51,7 @@ class PortfolioController extends Controller
             Image::make($imgs)->save('images/portfolio/' . $filename);
 
         }else{
-            Image::make($imgs)->resize(300,200)->save('images/portfolio/' . $filename);
+            Image::make($imgs)->resize(200,300)->save('images/portfolio/' . $filename);
         }
         $portfolio = new Portfolio();
         if ($request->has('cover_image')) {
@@ -93,7 +93,7 @@ class PortfolioController extends Controller
                 Image::make($imgs)->save('images/portfolio/' . $filename);
 
             }else{
-                Image::make($imgs)->resize(300,200)->save('images/portfolio/' . $filename);
+                Image::make($imgs)->resize(200,300)->save('images/portfolio/' . $filename);
             }
             $portfolio->thumbnail = 'images/portfolio/' . $filename;
         }
