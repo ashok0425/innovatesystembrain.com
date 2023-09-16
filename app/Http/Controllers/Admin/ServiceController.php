@@ -49,7 +49,7 @@ class ServiceController extends Controller
        $orginal_ext = $request->file('thumbnail')->getClientOriginalExtension();
         $filename = rand() . ".$orginal_ext";
         $imgs = $request->file('thumbnail');
-        Image::make($imgs)->resize(200,300)->save('images/service/' . $filename);
+        Image::make($imgs)->resize(400,400)->save('images/service/' . $filename);
 
         $service = new Service();
         if ($request->cover_image) {
@@ -103,7 +103,7 @@ class ServiceController extends Controller
             $orginal_ext = $request->file('thumbnail')->getClientOriginalExtension();
             $filename = rand() . ".$orginal_ext";
             $imgs = $request->file('thumbnail');
-            Image::make($imgs)->resize(200,300)->save('images/service/' . $filename);
+            Image::make($imgs)->resize(400,400)->save('images/service/' . $filename);
             $service->thumbnail = 'images/service/' . $filename;
         }
 
