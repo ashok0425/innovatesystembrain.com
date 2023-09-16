@@ -31,7 +31,13 @@
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="service-item">
                                 <a class="service-img" href="{{route('service.detail',['slug'=>$service->slug])}}">
-                                    <img src="{{asset($service->thumbnail)}}" alt="Image">
+                                    <div style=" width: 100%;
+                                    height: 200px;
+                                    background-image: url('{{asset($service->thumbnail)}}');
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    background-position: 50% 25%;">
+                                </div>
 
                                 </a>
                                 <div class="service-text">

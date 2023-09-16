@@ -47,7 +47,7 @@ class BlogController extends Controller
         $orginal_ext = $request->file('thumbnail')->getClientOriginalExtension();
         $filename = rand() . ".$orginal_ext";
         $imgs = $request->file('thumbnail');
-        Image::make($imgs)->resize(400,400)->save('images/blog/' . $filename);
+        Image::make($imgs)->save('images/blog/' . $filename);
         $blog = new Blog();
         $blog->thumbnail = 'images/blog/' . $filename;
         $blog->title = $request->title;
@@ -81,7 +81,7 @@ class BlogController extends Controller
             $orginal_ext = $request->file('thumbnail')->getClientOriginalExtension();
             $filename = rand() . ".$orginal_ext";
             $imgs = $request->file('thumbnail');
-            Image::make($imgs)->resize(400,400)->save('images/blog/' . $filename);
+            Image::make($imgs)->save('images/blog/' . $filename);
             $blog->thumbnail = 'images/blog/' . $filename;
         }
 

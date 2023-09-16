@@ -31,7 +31,13 @@
                         <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="team-item">
                                 <div class="team-img">
-                                    <img src="{{asset($team->thumbnail)}}" alt="Team Image" width="100%" height="200" style="object-fit: fit">
+                                    <div style=" width: 100%;
+                                    height: 200px;
+                                    background-image: url('{{asset($team->thumbnail)}}');
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    background-position: 50% 25%;">
+                                </div>
                                 </div>
                                 <div class="team-text">
                                     <h2>{{$team->name}}</h2>
