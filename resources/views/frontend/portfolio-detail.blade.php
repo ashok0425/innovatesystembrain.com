@@ -28,10 +28,11 @@
                                <div class="card shadow border-none border-0">
                               <div class="card-body">
                                 @if ($portfolio->content_type=='video')
-                                <video src="{{asset($portfolio->thumbnail)}}" autoplay style="max-width: 100%;max-height:300px;" controls></video>
+                                <video src="{{asset($portfolio->thumbnail)}}" autoplay style="width: 100%;max-height:300px;" controls></video>
                                 @endif
-
+                                @if (isset($portfolio->cover_image))
                                 <img src="{{asset($portfolio->cover_image)}}" class="img-fluid" />
+                                @endif
                                 <br>
                                 <br>
 

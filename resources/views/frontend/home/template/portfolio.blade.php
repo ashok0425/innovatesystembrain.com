@@ -19,7 +19,7 @@
                         </a>
                         <a class="service-text" href="{{route('portfolio.detail',['slug'=>$portfolio->slug])}}">
                              <h3>
-                                <span class="a"  >               {!!$portfolio->title!!}
+                                <span class="a">{!!$portfolio->title!!}
                                 </span>
                             </h3>
 
