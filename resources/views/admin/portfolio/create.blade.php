@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group">
                         <label for="cover_image">Cover Image</label>
-                        <input type="file" name="cover_image" class="form-control" required>
+                        <input type="file" name="cover_image" class="form-control" >
                         @error('cover_image')
                     <span class="text-danger">{{$message}}</span>
                         @enderror
@@ -37,6 +37,18 @@
                             <option value="product">Product</option>
                         </select>
                         @error('type')
+                    <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content_type">Content Type </label>
+                        <select name="content_type" id="" class="form-select form-control">
+                            <option value="">--select type--</option>
+                            <option value="image">Image</option>
+                            <option value="video">Video</option>
+                        </select>
+                        @error('content_type')
                     <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>

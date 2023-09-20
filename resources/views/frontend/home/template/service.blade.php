@@ -1,6 +1,6 @@
   <!-- Service Start -->
   @php
-      $services=DB::table('services')->latest()->get();
+      $services=DB::table('services')->latest()->limit(3)->get();
   @endphp
   <div class="service">
     <div class="container">

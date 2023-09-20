@@ -23,30 +23,24 @@
             <div class="service">
                 <div class="container">
                     <div class="section-header text-center">
-                        <p>Our Services</p>
-                        <h2>We Provide Services</h2>
+                        <p>Our Work</p>
+                        <h2>Our Work Video</h2>
                     </div>
                     <div class="row">
-                        @foreach ($portfolios as $portfolio)
+                        @foreach ($videos as $portfolio)
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="service-item">
-                                <a class="portfolio-img" href="{{route('service.detail',['slug'=>$portfolio->slug])}}">
-                                    <div style=" width: 100%;
-                                    height: 200px;
-                                    background-image: url('{{asset($portfolio->thumbnail)}}');
-                                    background-size: cover;
-                                    background-repeat: no-repeat;
-                                    background-position: 50% 25%;">
-                                </div>
+                                <a class="portfolio-img" href="{{route('portfolio.detail',['slug'=>$portfolio->slug])}}">
+                                   <video src="{{asset($portfolio->thumbnail)}}" autoplay style="max-width: 100%" controls></video>
 
                                 </a>
-                                <div class="service-text">
+                                <a class="service-text" href="{{route('portfolio.detail',['slug'=>$portfolio->slug])}}">
                                      <h3>
-                                        <a class="a"  href="{{route('portfolio.detail',['slug'=>$portfolio->slug])}}">               {!!$portfolio->title!!}
-                                        </a>
+                                        <span class="a"  >               {!!$portfolio->title!!}
+                                        </span>
                                     </h3>
-                                    <a class="btn" href="{{asset($portfolio->thumbnail)}}" data-lightbox="service">+</a>
-                                </div>
+
+                                </a>
                             </div>
                         </div>
 
@@ -56,6 +50,43 @@
                 </div>
             </div>
             <!-- Service End -->
+
+
+            <div class="service">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <p>Our Portfolio</p>
+                        <h2>We Work Images</h2>
+                    </div>
+                    <div class="row">
+                        @foreach ($images as $image)
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="service-item">
+                                <a class="service-img" href="{{route('portfolio.detail',['slug'=>$image->slug])}}">
+                                    <div style=" width: 100%;
+                                    height: 200px;
+                                    background-image: url('{{asset($image->thumbnail)}}');
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    background-position: 50% 25%;">
+                                </div>
+
+                                </a>
+                                <div class="service-text">
+                                     <h3>
+                                        <a class="a"  href="{{route('portfolio.detail',['slug'=>$image->slug])}}">               {!!$image->title!!}
+                                        </a>
+                                    </h3>
+                                    <a class="btn" href="{{asset($image->thumbnail)}}" data-lightbox="service">+</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        @endforeach
+
+                    </div>
+                </div>
+            </div>
 
             @include('frontend.home.template.faq')
 

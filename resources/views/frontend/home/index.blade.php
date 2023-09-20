@@ -6,6 +6,8 @@
     @include('frontend.home.template.product')
 
     @include('frontend.home.template.about')
+    @include('frontend.home.template.portfolio')
+
     @include('frontend.home.template.service')
     @include('frontend.home.template.video')
     @include('frontend.home.template.team')

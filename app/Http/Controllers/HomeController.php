@@ -42,8 +42,10 @@ public function team(){
 }
 
 public function portfolio(){
-    $portfolios=Portfolio::where('type','portfolio')->get();
-    return view('frontend.portfolio',compact('portfolios'));
+    $videos=Portfolio::where('type','portfolio')->where('content_type','video')->get();
+    $images=Portfolio::where('type','portfolio')->where('content_type','image')->get();
+
+    return view('frontend.portfolio',compact('videos','images'));
 }
 
 

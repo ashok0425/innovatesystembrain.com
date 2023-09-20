@@ -18,7 +18,12 @@
                     <div class="form-group">
                         <label for="thumbnail">Thumbnail</label>
                         <input type="file" name="thumbnail" class="form-control">
+                        @if ($portfolio->content_type=='video')
+                            <a href="{{asset($portfolio->thumbnail)}}" target="_blank" class="mt-2">Click to view Video</a>
+                        @else
                         <img src="{{asset($portfolio->thumbnail)}}" alt="{{$portfolio->thumbnail}}" width="100">
+                        @endif
+
                         @error('thumbnail')
                     <span class="text-danger">{{$message}}</span>
                         @enderror
@@ -40,6 +45,18 @@
                             <option value="product" {{$portfolio->type=='product'?'selected':''}}>Product</option>
                         </select>
                         @error('type')
+                    <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content_type">Portfolio Type</label>
+                        <select name="content_type" id="" class="form-select form-control">
+                            <option value="">--select type--</option>
+                            <option value="image" {{$portfolio->content_type=='image'?'selected':''}}>Image</option>
+                            <option value="video" {{$portfolio->content_type=='video'?'selected':''}}>Video</option>
+                        </select>
+                        @error('content_type')
                     <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>

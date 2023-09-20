@@ -40,19 +40,13 @@ class PortfolioController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'thumbnail' => 'required|mimes:jpg,jpeg,png,gif|max:2048',
+            'thumbnail' => 'required',
             'title' => 'required',
         ]);
-        $orginal_name = $request->file('thumbnail')->getClientOriginalName();
         $orginal_ext = $request->file('thumbnail')->getClientOriginalExtension();
         $filename = rand() . ".$orginal_ext";
         $imgs = $request->file('thumbnail');
-        if($request->type=='product'){
-            Image::make($imgs)->save('images/portfolio/' . $filename);
-
-        }else{
-            Image::make($imgs)->save('images/portfolio/' . $filename);
-        }
+        $imgs->move('images/portfolio/',$filename);
         $portfolio = new Portfolio();
         if ($request->has('cover_image')) {
             $orginal_ext = $request->file('cover_image')->getClientOriginalExtension();
@@ -65,6 +59,7 @@ class PortfolioController extends Controller
         $portfolio->title = $request->title;
         $portfolio->type = $request->type;
         $portfolio->short_desc = $request->short_desc;
+        $portfolio->content_type = $request->content_type;
         $portfolio->descr = $request->descr;
         $portfolio->slug =Str::slug($request->title);
         $portfolio->save();
@@ -89,12 +84,7 @@ class PortfolioController extends Controller
             $orginal_ext = $request->file('thumbnail')->getClientOriginalExtension();
             $filename = rand() . ".$orginal_ext";
             $imgs = $request->file('thumbnail');
-            if($request->type=='product'){
-                Image::make($imgs)->save('images/portfolio/' . $filename);
-
-            }else{
-                Image::make($imgs)->save('images/portfolio/' . $filename);
-            }
+            $imgs->move('images/portfolio/',$filename);
             $portfolio->thumbnail = 'images/portfolio/' . $filename;
         }
         if ($request->has('cover_image')) {
@@ -108,6 +98,7 @@ class PortfolioController extends Controller
         $portfolio->short_desc = $request->short_desc;
         $portfolio->descr = $request->descr;
         $portfolio->type = $request->type;
+        $portfolio->content_type = $request->content_type;
         $portfolio->slug =Str::slug($request->title);
         $portfolio->save();
         return redirect()->back()->with('msg', 'Portfolio updated');
